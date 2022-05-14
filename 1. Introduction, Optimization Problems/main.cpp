@@ -11,7 +11,11 @@ void testGreedy(Menu foods, int maxCal, bool (*keyFunction)(Food, Food));
 
 //Function that defines whats a Better food
 bool BestFood(Food a, Food b){
-	return a.getVal() > b.getVal();
+	//Most Calories first
+	return a.getCal() > b.getCal();
+
+	//Better Density
+	//return (a.getVal()/a.getCal()) > (b.getVal()/b.getCal());
 }
 
 int main(){
@@ -26,7 +30,7 @@ int main(){
 	menu.push_back(Food(95 , 50, "apple"));
 	menu.push_back(Food(195, 10, "donut"));
 
-	testGreedy(menu, 800, BestFood);
+	testGreedy(menu, 750, BestFood);
 
 	return 0;
 }
